@@ -26,7 +26,10 @@ passport.deserializeUser(admin.deserializeUser());
 //connection
 let db_url = process.env.DATABASEURL || "mongodb://localhost/web_eng"
 
-mongoose.connect(db_url);
+mongoose.connect(db_url, function(error)
+{
+    console.log(error);    
+});
 
 var name = "ubaid";
 var password = "pakistan1234";
