@@ -1,0 +1,25 @@
+{
+  "name": "web_engineering_project",
+  "version": "1.0.0",
+  "description": "Its Semester Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UbaidurRehman1/WebProject.git"
+  },
+  "author": "Ubaid Ameer Shehryar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UbaidurRehman1/WebProject/issues"
+  },
+  "homepage": "https://github.com/UbaidurRehman1/WebProject#readme",
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6"
+  }
+}

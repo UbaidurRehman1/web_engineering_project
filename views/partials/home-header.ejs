@@ -1,0 +1,26 @@
+ <div class="ui container">
+
+          <div class="ui large secondary inverted pointing menu">
+            <a class="toc item">
+            	<i class="sidebar icon"></i>
+            </a>
+            <a href="Homepage.html" class="active item">
+            	Home
+        	</a>
+        	<a href="About-Us.html" class="item">
+        		About Us
+        	</a><!--<a class="item">Company</a><a class="item">Careers</a>-->
+            
+            <div class="right item">
+              <a class="ui inverted button" href="Login.html">
+              	Log in
+              </a>
+              <a href="Signup.html" class="ui inverted button">
+              	Sign Up
+              </a>
+              <a href="Post-Job.html" class="ui blue button">
+              	Post A Job
+              </a>
+            </div>
+          </div>
+</div>

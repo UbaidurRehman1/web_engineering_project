@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI." name="description" />
+    <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
+    <meta content="PPType" name="author" />
+    <link href="icon.png" rel="icon" sizes="180x180" />
+    <link href="icon.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="icon.png" rel="icon" sizes="16x16" type="image/png" />
+    <title>JobPortal</title>
+    <link href="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.default.min.css" rel="stylesheet" type="text/css" />
+    
+    
+  </head>
+  <body class="template" style="background-color: #F1F1F1">
+    <!--<div class="ui large top fixed hidden menu">
+      <div class="ui container">
+        <a class="active item">Home</a><a class="item">Features</a><a class="item">About</a><a class="item">Contacts</a>
+        <div class="right menu">
+          <div class="item">
+            <a class="ui button">Log in</a>
+          </div>
+          <div class="item">
+            <a class="ui button">Sign Up</a>
+          </div>
+          <div class="item">
+            <a class="ui blue button">Post a Job</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+    <!--Page Contents-->
+    <div class="pusher">
+      <div class="ui inverted vertical masthead center aligned segment">
+
+        <%include ../partials/home-header.ejs%>
+        <div class="ui text container">
+          <h1 class="ui inverted header">
+            Find Your Job
+          </h1>
+          <h2>
+            Or don't
+          </h2>
+          <br>
+          <br>
+          <form class="ui form">
+            <div class="field">
+               <div class="ui action input">
+                <input type="text" placeholder="Job Type, Company">
+                 <button class="ui primary button" formaction="Search.php"> Search </button>
+              </div>
+            </div>
+          </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="quickaccess ui horizontal stripe segment">
+        <div class="center aligned ui header">Reviews</div>
+        <div class="center aligned ui container">
+        
+        <div class="ui link cards">
+          <div style="width: 18.4%" class="card">
+            <div class="image">
+              <img style="background-color: black; opacity: 0.6" src="Capture.jpg">
+              <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+            </div>
+            <div class="content">
+              <div class="header">
+                Person Name
+              </div>
+              <div class="meta">
+                Person occuptaion
+              </div>
+            </div>
+          </div>
+          <div style="width: 18.4%" class="card">
+            <div class="image">
+              <img src="Capture.jpg">
+              <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+            </div>
+            <div class="content">
+              <div class="header">
+                Person Name
+              </div>
+              <div class="meta">
+                Person occuptaion
+              </div>
+            </div>
+          </div>
+          <div style="width: 18.4%" class="card">
+            <div class="image">
+              <img src="Capture.jpg">
+              <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+            </div>
+            <div class="content">
+              <div class="header">
+                Person Name
+              </div>
+              <div class="meta">
+                Person occuptaion
+              </div>
+            </div>
+          </div>
+          <div style="width: 18.4%" class="card">
+            <div class="image">
+              <img src="Capture.jpg">
+              <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+            </div>
+            <div class="content">
+              <div class="header">
+                Person Name
+              </div>
+              <div class="meta">
+                Person occuptaion
+              </div>
+            </div>
+          </div>
+
+           <div style="width: 18.4%" class="card">
+            <div class="image">
+              <img src="Capture.jpg">
+              <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+            </div>
+            <div class="content">
+              <div class="header">
+                Person Name
+              </div>
+              <div class="meta">
+                Person occuptaion
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <button class="ui button">Previous</button>
+        <button class="ui button">Next</button>
+        </div>
+      </div>
+        <div class="ui middle aligned stackable grid container">
+          <div class="nine wide column">
+            <div class="ui segment">
+              <h3 class="ui header">Top Jobs</h3>
+              <div class="ui divider"></div>
+              <div class="ui two column grid">
+                <div class="column">
+                  <h4 class="ui header">IT Department Manager 
+                    <div class="floated right large ui image">
+                      <img src="images/g1.jpg">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+
+                  <h4 class="ui header">Coordinating Officer
+                    <div class="floated right large ui image">
+                      <img src="images/l1.jpg">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                  <h4 class="ui header">Communications Seer
+                    <div class="floated right large ui image">
+                      <img src="images/l2.jpg">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+
+                  <h4 class="ui header">Subject Matter Expert
+                    <div class="floated right large ui image">
+                      <img src="images/g2.png">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                  <h4 class="ui header">Graphics Designer
+                    <div class="floated right large ui image">
+                      <img src="images/g5.gif">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                </div>
+                <div class="column">
+                  <h4 class="ui header">Content Writer
+                    <div class="floated right large ui image">
+                      <img src="images/g4.png">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                  <h4 class="ui header">Bank Accountant
+                    <div class="floated right large ui image">
+                      <img src="images/g3.png">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                  <h4 class="ui header">Tech Salesman
+                    <div class="floated right large ui image">
+                      <img src="images/g7.png">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                  <h4 class="ui header">A certain Job Title 
+                    <div class="floated right large ui image">
+                      <img src="images/g9.png">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                 <h4 class="ui header">Marvel Avenger
+                    <div class="floated right large ui image">
+                      <img src="images/g1.jpg">
+                    </div>
+                    <div class="sub header">Company - Location</div>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="seven wide column">
+            <div class="ui segment">
+              <h3 class="ui header">Top Employers </h3>
+              <div class="ui divider"></div>
+              <div class="ui three column grid">
+                <div class="column">
+                  
+                   
+                    <div>
+                  <img class="Company-Banner" src="images/g3.png">
+                </div>
+                    
+                
+                </div>
+                <div class="column">
+                  
+                   
+                    <div>
+                  <img class="Company-Banner" src="images/g1.jpg">
+                </div>
+                    
+                  
+                </div>
+                <div class="column">
+                  
+                    
+                    <div>
+                  <img class="Company-Banner" src="images/g2.png">
+                </div>
+                    
+                  
+                </div>
+              </div>
+               <div class="ui three column grid">
+                <div class="column">
+                  
+                    
+                    <div>
+                  <img class="Company-Banner" src="images/g4.png">
+                </div>
+                    
+                
+                </div>
+                <div class="column">
+                  
+                    
+                    <div>
+                  <img class="Company-Banner" src="images/g5.gif">
+                </div>
+                   
+                  
+                </div>
+                <div class="column">
+                  
+                    
+                    <div>
+                  <img class="Company-Banner" src="images/g6.png">
+                </div>
+                   
+                  
+                </div>
+              </div>
+               <div class="ui three column grid">
+                <div class="column">
+                  
+                   
+                    <div>
+                  <img class="Company-Banner" src="images/g7.png">
+                </div>
+                    
+                
+                </div>
+                <div class="column">
+                  
+                   
+                    <div>
+                  <img class="Company-Banner" src="images/g8.jpg">
+                </div>
+                   
+                  
+                </div>
+                <div class="column">
+                  
+                    
+                    <div>
+                  <img class="Company-Banner" src="images/g9.png">
+                </div>
+                   
+                  
+                </div>
+              </div>
+              <br>
+
+            </div>
+          </div>
+          <div class=" ui container">
+            <div class="quickaccess ui segment">
+              <div class="ui attached tabular menu">
+                <div></div>
+                <div class="ui header">Places to Work</div>
+              <div class="right menu">
+                <a class="active item">All</a>
+              </div>
+            </div>
+              <div class="ui bottom attached five column grid ">
+                
+                <div class="column">
+                  <ul style="list-style-type: none; padding:0px">
+                    <li><h4 style="color: #4286f4" class="ui header">Information Technology</h4>
+                      <div class="sub header">Abacus Consulting</div>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      <div class="sub header">ePlanet Communications</div>
+                      <div class="sub header">Future Now Limited</div>
+                      <div class="sub header">NetSol Technologies</div>
+                    </li>
+                    <li>
+                      <div class="sub header">Slash Next</div>
+                      <div class="sub header">Strategic Systems International</div>
+                      <div class="sub header">Zameen Media (Pvt) Limited</div>
+                      <h4 style="color: #4286f4;" class="ui header">Telecommunication/ ISP</h4>
+                      <div class="sub header">Cyber Internet Services (Pvt) Limited</div>
+                      <div class="sub header">Jazz</div>
+                      <div class="sub header">CNayatel Pvt Ltd</div>
+                      <div class="sub header">PTCL</div>
+                      <div class="sub header">Company with Job</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="column">
+                  <ul style="list-style-type: none; padding:0px">
+                    <li>
+                      <div class="sub header">Company with Job</div>
+                      <h4 style="color: #4286f4" class="ui header">Banking and Financial Services</h4>
+                      <div class="sub header">Bank Al Habib Limited</div>
+                      <div class="sub header">Faysal Bank Ltd</div>
+                      <div class="sub header">Some other Bank (Pvt) Ltd</div>
+                      <div class="sub header">Finca Microfinance Bank</div>
+                      <div class="sub header">Finja</div>
+                      <div class="sub header">Khushhali Microfinance Bank</div>
+                    </li>
+                    <li><h4 style="color: #4286f4; padding-top: 10px" class="ui header">Fast Moving Consumer Goods</h4>
+                      <div class="sub header">Dawn Bread</div>
+                      <div class="sub header">IFFCO Pvt Limited</div>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      <div class="sub header">ePlanet Communications</div>
+                      <div class="sub header">Future Now Limited</div>
+                      
+                    </li>
+                  </ul>
+                </div>
+                <div class="column">
+                  <ul style="list-style-type: none; padding:0px">
+                    <li><h4 style="color: #4286f4" class="ui header">Insurance</h4>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      <div class="sub header">ePlanet Communications</div>
+                      <div class="sub header">Complan and stuff</div>
+                      <div class="sub header">Future Now Limited</div>
+                      <div class="sub header">NetSol Technologies</div>
+                    </li>
+                    <li><h4 style="color: #4286f4; padding-top: 10px" class="ui header">Textile Garments</h4>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      <div class="sub header">ePlanet Communications</div>
+                      <div class="sub header">Future Now Limited</div>
+                      <div class="sub header">NetSol Technologies</div>
+
+                      <div class="sub header">Creative Chaos</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="column">
+                  <ul style="list-style-type: none; padding:0px">
+                    <li>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      <div class="sub header">ePlanet Communications</div>
+                      <div class="sub header">Future Now Limited</div>
+                      <div class="sub header">NetSol Technologies</div>
+                      <h4 style="color: #4286f4" class="ui header">Automobile</h4>
+                      
+                      <div class="sub header">ICM Japan</div>
+                      <div class="sub header">Indus Motor Company</div>
+                    </li>
+                    <li><h4 style="color: #4286f4; padding-top: 10px" class="ui header">HealthCare</h4>
+                      <div class="sub header">Company with Job</div>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      
+                    </li>
+                  </ul>
+                </div>
+                <div class="column">
+                  <ul style="list-style-type: none; padding:0px">
+                    <li><h4 style="color: #4286f4" class="ui header">Logistics</h4>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      <div class="sub header">ePlanet Communications</div>
+                      <div class="sub header">Future Now Limited</div>
+                      <div class="sub header">NetSol Technologies</div>
+                      
+                    </li>
+                    <li><h4 style="color: #4286f4; padding-top: 10px" class="ui header">Real Estate/ Property</h4>
+                      <div class="sub header">Arpatech Advance Research Projects and Technologies (Pvt) Ltd</div>
+                      <div class="sub header">Contour Software</div>
+                      <div class="sub header">Creative Chaos</div>
+                      <div class="sub header">Crossover market Inc</div>
+                      <div class="sub header">ePlanet Communications</div>
+                      <div class="sub header">Future Now Limited</div>
+                      <div class="sub header">NetSol Technologies</div>
+                      <div class="sub header">Creative Chaos</div>
+                      
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!--  <div class="row">
+            <div class="eight wide column">
+              <div class="ui segment">
+              <h3 class="ui header">
+                We Help Stores Compete
+              </h3>
+              <p>
+                Currently, we're collaborating with XXX.
+                The point is to be able to keep track of a store's stock and be able to order stuff online. Its basically a less useful version of Amazon, its hard to tell whose side I'm on...meh.
+              </p>
+              </div>
+              <div class="ui segment">
+              <h3 class="ui header">
+                Still a ProtoType
+              </h3>
+              <p>
+                If you encounter any bugs, feel free to let us know. Not me specifically, someone else. You'll probably see this message again on this site.
+              </p>
+            </div>
+            </div>
+            <div class="six wide right floated column">
+              <img class="ui large bordered rounded image" src="icon.png" />
+            </div>
+          </div>
+          -->
+          <div class="row">
+          </div>
+
+          <div class="ui container">
+            <div class="ui stackable two column grid">
+              <div class="column">
+                <div class="ui segment">
+                  <div>
+                  <img style="width: 100%" src="Capture.jpg">
+                </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="ui segment">
+                  <div class="ui internally celled three column grid">
+                      <div class="row">
+                        <div class="column">
+                          <i class="huge circular dollar sign icon"></i>
+                          <div style="padding-left: 25px" class="ui header">Finance</div>
+                        </div>
+                        <div class="column">
+                          <i class="huge circular book icon"></i>
+                          <div style="padding-left: 25px" class="ui header">Education</div>
+                        </div>
+                        <div class="column">
+                          <i class="huge circular laptop icon"></i>
+                          <div style="padding-left: 25px" class="ui header">Technology</div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="column">
+                          <i class="huge circular ambulance icon"></i>
+                          <div style="padding-left: 25px" class="ui header">Healthcare</div>
+                        </div>
+                        <div class="column">
+                          <i class="huge circular home sign icon"></i>
+                          <div style="padding-left: 25px" class="ui header">Property</div>
+                        </div>
+                        <div class="column">
+                          <i class="huge circular key sign icon"></i>
+                          <div style="padding-left: 25px" class="ui header">Accounting</div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="row">
+          </div>
+
+
+
+        </div>
+      <br>
+      <br>      
+    
+     
+    <%include ../partials/footer%>
+
+
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style type="text/css">
+      h4.ui.header{
+        transition-duration: 0.7s;
+      }
+      
+      
+      h4.ui.header:hover{
+        background-color: #F1F1F1;
+        transition-duration: 0.7s;
+        border-radius: 1em;
+        padding: 1em;
+        transition-property: padding;
+      }
+
+      .column > i{
+        transition-property: background-color,color;
+        transition-duration: 0.5s;      }
+
+      .column > i:hover{
+        background-color: black;
+        color: white;
+        cursor: pointer;
+
+      }
+
+      .image > img{
+         opacity: 0.6;
+      }
+
+
+      .Company-Banner{
+        width: 100%; 
+        border: 1px solid #E1E1E1;
+      }
+
+
+
+    </style>
+  </body>
+  <footer>
+    
+  </footer>
+</html>
