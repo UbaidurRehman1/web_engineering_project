@@ -5,7 +5,7 @@
     <title>Job Portal - Admin Pannel</title>
     <link href="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.default.min.css" rel="stylesheet" type="text/css" />
     <link href="http://semantic-ui-forest.com/static/stylesheets/default.css" rel="stylesheet" type="text/css" />
-    <script src="http://semantic-ui-forest.com/static/dist/jquery/jquery.min.js"></script>
+    <!--<script src="http://semantic-ui-forest.com/static/dist/jquery/jquery.min.js"></script>-->
   </head>
 
   <body class="template">
@@ -241,18 +241,18 @@
   <div class="header">
     Update Job Description
   </div>
-  <form class="ui form blue segment">
+  <form class="ui form blue segment" action="/updateJob" method="post" encType="multipart/form-data">
                   <br>
                   <div class="field">
                     
                     <div class="two fields">
                       <div class="field">
                         <label><h3 style="text-align: left;">Job Title</h3></label>
-                        <input type="text" name="[first-name]" placeholder="First Name">
+                        <input type="text" name="title" placeholder="First Name">
                       </div>
                       <div class="field">
                         <label><h3 style="text-align: left;">Job Location</h3></label>
-                        <input type="text" name="[last-name]" placeholder="Last Name">
+                        <input type="text" name="location" placeholder="Last Name">
                       </div>
                     </div>
                   </div>
@@ -261,11 +261,11 @@
                     <div class="two fields">
                       <div class="field">
                         <label><h3 style="text-align: left;">Required Career Level</h3></label>
-                        <input type="Email" name="[email]" placeholder="E.g. JonDoe@email.com">
+                        <input type="text" name="req" placeholder="E.g. BESE">
                       </div>
                       <div class="field">
                         <label><h3 style="text-align: left;">No. Of Positions</h3></label>
-                        <input type="number" name="[CV]" placeholder="Choose a file">
+                        <input type="number" name="no" placeholder="Choose a file">
                       </div>
                     </div>
                   </div>
@@ -274,7 +274,7 @@
                   <br>
                     <div class="field">
                       <label><h3 style="text-align: left;">Job Description</h3></label>
-                      <textarea></textarea>
+                      <textarea name="desc"></textarea>
                     </div>
                   
                    <br>
@@ -283,11 +283,11 @@
                     <div class="two fields">
                       <div class="field">
                         
-                        <input type="number" name="[email]" placeholder="Min">
+                        <input type="number" name="min_year" placeholder="Min">
                       </div>
                       <div class="field">
                         
-                        <input type="number" name="[CV]" placeholder="Max">
+                        <input type="number" name="max_year" placeholder="Max">
                       </div>
                     </div>
                   </div>
@@ -297,24 +297,29 @@
                     <div class="two fields">
                       <div class="field">
                         
-                        <input type="number" name="[email]" placeholder="From">
+                        <input type="number" name="from_salary" placeholder="From">
                       </div>
                       <div class="field">
                         
-                        <input type="number" name="[CV]" placeholder="To">
+                        <input type="number" name="to_salary" placeholder="To">
                       </div>
                     </div>
                   </div>
                   <br>
+                    <div class="field">
+                      <label><h3 style="text-align: left;">Upload Image</h3></label>
+                      <input type="file" name="image">
+                    </div>
+
                   <br>
                   <div class="actions">
     <div class="ui black deny button">
       Cancel
     </div>
-    <div class="ui blue right labeled icon button">
+    <button class="ui blue right labeled icon button" type="submit">
       Update
       <i class="checkmark icon"></i>
-    </div>
+    </button>
   </div>
 </form>
   
@@ -417,7 +422,13 @@
         }
       }
     </style>
-    <script src="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  </body>
+  <footer>
+  <%include ../partials/footer.ejs%>
+  <script src="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.min.js"></script>
+
     <script type="text/javascript">
       $('.ui.dropdown').dropdown();
 
@@ -443,10 +454,7 @@
   });
 
     </script>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-  </body>
-  <footer>
-    
-  </footer>
 
+
+  </footer>
 </html>

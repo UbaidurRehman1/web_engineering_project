@@ -1,6 +1,5 @@
-const   mongoose                =   require("mongoose"),
-        passportLocalMongoose   =   require("passport-local-mongoose");
-
+const   mongoose                =   require("mongoose");
+     
 
 let jobSchema = new mongoose.Schema(
     {
@@ -9,8 +8,11 @@ let jobSchema = new mongoose.Schema(
         req: String,
         no: Number,
         desc: String,
-        experience: Number,
-        salary: Number
+        min_exp: Number,
+        max_exp: Number,
+        min_sal: Number,
+        max_sal: Number,
+        image: String
     }
 );
 
