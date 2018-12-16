@@ -28,16 +28,16 @@ let db_url = process.env.DATABASEURL || "mongodb://localhost/web_eng"
 
 mongoose.connect(db_url);
 
-var name = "ubaid";
-var password = "pakistan1234";
-var newUser = new admin({
-    username: name
-});
-admin.register(newUser, password, function (err, account) {
-    if (err) {
-        console.log(err);
-    }
-});
+// var name = "ubaid";
+// var password = "pakistan1234";
+// var newUser = new admin({
+//     username: name
+// });
+// admin.register(newUser, password, function (err, account) {
+//     if (err) {
+//         console.log(err);
+//     }
+// });
 
 
 
