@@ -10,7 +10,7 @@ let     express                     =   require("express"),
 
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static("assests"));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
@@ -26,21 +26,26 @@ passport.deserializeUser(admin.deserializeUser());
 //connection
 let db_url = process.env.DATABASEURL || "mongodb://localhost/web_eng"
 
-mongoose.connect(db_url, function(error)
+mongoose.connect(db_url, { useNewUrlParser: true }, function(error)
 {
-    console.log(error);    
-});
-
-var name = "ubaid";
-var password = "pakistan1234";
-var newUser = new admin({
-    username: name
-});
-admin.register(newUser, password, function (err, account) {
-    if (err) {
-        console.log(err);
+    if(error != null)
+    {
+        console.log(error);
     }
 });
+
+mongoose.set('useCreateIndex', true);
+
+// var name = "ubaid";
+// var password = "pakistan1234";
+// var newUser = new admin({
+//     username: name
+// });
+// admin.register(newUser, password, function (err, account) {
+//     if (err) {
+//         console.log(err);
+//     }
+// });
 
 
 
