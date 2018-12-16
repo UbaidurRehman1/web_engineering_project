@@ -54,7 +54,7 @@ app.post("/admin", passport.authenticate("local", {
     failureRedirect : "/admin",
 }), function(req, res)
 {
-    res.send("Authentication Successfull");
+    res.render("admin/admin");
 });
 
 
