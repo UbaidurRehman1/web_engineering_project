@@ -6,9 +6,6 @@ let     express                     =   require("express"),
         passport                    =   require("passport");
 
 
-
-
-
 app.set("view engine", "ejs");
 app.use(express.static("assests"));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
@@ -71,6 +68,11 @@ app.post("/admin", passport.authenticate("local", {
 app.get("/", function(req, res)
 {
     res.render("index/Homepage");
+});
+
+app.get("/search", function(req, res)
+{
+    res.send("Search Page");
 });
 
 
