@@ -37,8 +37,13 @@
                     <form class="ui form">
                         <div class="field">
                             <div class="ui action input">
-                                <input type="text" placeholder="Job Type, Company" name="q">
-                                <button class="ui primary button" formaction="/search"> Search </button>
+                                <!--<input type="text" placeholder="Job Type, Company" name="q">-->
+                                <!--<button class="ui primary button" formaction="/search"> Search </button>-->
+                                <form method="get" action="/serach">
+                                    <input input="text" placehodler="Job Type, Compnay" name="q">
+                                    <button class="ui primary button" formaction="/search"> Search </button>
+                                </form>
+
                             </div>
                         </div>
                     </form>
@@ -55,7 +60,7 @@
                 <div style="width: 18.4%" class="card">
                     <div class="image">
                         <img style="background-color: black; opacity: 0.6" src="/resources/images/cand-1.png">
-                        <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+                        
                     </div>
                     <div class="content">
                         <div class="header">
@@ -69,7 +74,7 @@
                 <div style="width: 18.4%" class="card">
                     <div class="image">
                         <img src="/resources/images/cand-2.png">
-                        <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+                        
                     </div>
                     <div class="content">
                         <div class="header">
@@ -83,7 +88,7 @@
                 <div style="width: 18.4%" class="card">
                     <div class="image">
                         <img src="/resources/images/cand-3.png">
-                        <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+                        
                     </div>
                     <div class="content">
                         <div class="header">
@@ -97,7 +102,7 @@
                 <div style="width: 18.4%" class="card">
                     <div class="image">
                         <img src="/resources/images/cand-4.png">
-                        <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+                        
                     </div>
                     <div class="content">
                         <div class="header">
@@ -112,7 +117,7 @@
                 <div style="width: 18.4%" class="card">
                     <div class="image">
                         <img src="/resources/images/cand-5.png">
-                        <i style="position: absolute; top: 0.4em; right: 1.2em" class="huge play circle icon"></i>
+                        
                     </div>
                     <div class="content">
                         <div class="header">
@@ -125,8 +130,6 @@
                 </div>
             </div>
             <br>
-            <button class="ui button">Previous</button>
-            <button class="ui button">Next</button>
         </div>
     </div>
     <div class="ui middle aligned stackable grid container">

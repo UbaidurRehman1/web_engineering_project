@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=1300, initial-scale=1 user-scalable=yes" name="viewport" />
+    <meta content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI." name="description" />
+    <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
+    <meta content="PPType" name="author" />
+    <link href="icon.png" rel="icon" sizes="180x180" />
+    <link href="icon.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="icon.png" rel="icon" sizes="16x16" type="image/png" />
+    <title>JobPortal</title>
+    <link href="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.default.min.css" rel="stylesheet" type="text/css" />
+    
+    
+  </head>
+  <body class="template">
+    
+    <!--Page Contents-->
+      
+       
+          	<%include ../partials/header.ejs%>
+            
+       <div style="background-color: #F1F1F1; padding: 2em; margin-top:3.5em" >
+          <div class="center aligned ui header"><h1>Edit Job</h1></div>   
+        </div>
+        
+        <div class="ui horizontal divider"><span style="font-size: 0.8em"><a href="">Home</a> > <a href="admin.ejs">Admin</a></span></div>
+        <br>
+        <br>
+      <br>
+      
+        
+        <div class="center aligned stackable ui container">
+
+            
+               
+                <form class="ui form blue segment" action="/detail/<%= job._id %>" method="POST" encType="multipart/form-data">
+                  <br>
+                    <div class="field">
+                    <div class="two fields">
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Company Name</h3></label>
+                        <input type="text" name="company" placeholder="Facebook" value="<%= job.company %>">
+                      </div>
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Job Title</h3></label>
+                        <input type="text" name="jData[title]" placeholder="Full Stack Developer" value="<%= job.title %>">
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="field">
+                    <div class="two fields">
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Job Location</h3></label>
+                        <input type="text" name="jData[location]" placeholder="Silicon valley" value="<%= job.location %>">
+                      </div>
+                      
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Experience Required</h3></label>
+                        <input type="text" name="jData[experience]" placeholder="1 Year" value="<%= job.experience %>">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <br>
+                  <div class="field">
+                    <div class="two fields">
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Skills</h3></label>
+                        <input type="text" name="jData[skills]" placeholder="HTML, CSS, Java" value="<%= job.skills %>">
+                      </div>
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Qualification</h3></label>
+                        <input type="text" name="jData[qualification]" placeholder="e.g. Masters in CS" value="<%= job.qualification %>">
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <br>
+                  
+                    <div class="field">
+                      <label><h3 style="text-align: left;">Company Info</h3></label>
+                      <textarea name="jData[companyInfo]"><%= job.companyInfo %></textarea>
+                    </div>
+
+                    <div class="field">
+                      <label><h3 style="text-align: left;">Job Description</h3></label>
+                      <textarea name="jData[desc]"><%= job.desc %></textarea>
+                    </div>
+                  
+                   <br>
+                   <div class="field">
+                    <label><h3 style="text-align: left;">Salary Range</h3></label>
+                    <div class="two fields">
+                      <div class="field">
+                        
+                        <input type="number" name="jData[min_sal]" placeholder="Min" value="<%= job.min_sal %>">
+                      </div>
+                      <div class="field">
+                        
+                        <input type="number" name="jData[max_sal]" placeholder="Max" value="<%= job.max_sal %>">
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+
+                    <div class="field">
+                      <label><h3 style="text-align: left;">Upload Image</h3></label>
+                      <input type="text" name="jData[image]" value="<%= job.image %>">
+                    </div>
+
+                  <br>
+                  <div class="actions">
+    <div class="ui black deny button">
+      Cancel
+    </div>
+    <button class="ui blue right labeled icon button" type="submit">
+      Update
+      <i class="checkmark icon"></i>
+    </button>
+  </div>
+</form>
+              </div>
+              </div>
+           
+      <br>
+      <br>      
+    
+ <?php include 'include/footer.php' ?>  
+    </div>
+    <script src="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="/css/admin.css">
+   <link rel="stylesheet" type="text/css" href="/css/main.css">
+   
+  </body>
+  <footer>
+    
+  </footer>
+</html>

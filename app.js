@@ -4,7 +4,9 @@ let     express                     =   require("express"),
         mongoose                    =   require("mongoose"),
         admin                       =   require("./models/admin"),
         passport                    =   require("passport"),
-        job                         =   require("./models/job");
+        job                         =   require("./models/job"),
+        LocalStratrgy               =   require("passport-local"),
+        methodOverride              =   require('method-override');
 
 
 const multer = require("multer");
@@ -13,13 +15,23 @@ const cloudinaryStorage = require("multer-storage-cloudinary");
 
 app.set("view engine", "ejs");
 app.use(express.static("assests"));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
+
+
+
+// Passport Configuration
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+    }));
+
 app.use(passport.initialize());
 app.use(passport.session());
+passport.use(new LocalStratrgy(admin.authenticate()));
 
-
-passport.use(admin.createStrategy());
+// For encoding and decoding the session
 passport.serializeUser(admin.serializeUser());
 passport.deserializeUser(admin.deserializeUser());
 
@@ -27,7 +39,6 @@ passport.deserializeUser(admin.deserializeUser());
 
 //connection
 let db_url = process.env.DATABASEURL || "mongodb://localhost/web_eng"
-
 mongoose.connect(db_url, { useNewUrlParser: true }, function(error)
 {
     if(error != null)
@@ -35,10 +46,10 @@ mongoose.connect(db_url, { useNewUrlParser: true }, function(error)
         console.log(error);
     }
 });
-
 mongoose.set('useCreateIndex', true);
 
 
+// Cloudinary Config
 cloudinary.config
 ({
     cloud_name: 'student1234567',
@@ -52,13 +63,12 @@ folder: "demo",
 allowedFormats: ["jpg", "png"],
 transformation: [{ width: 500, height: 500, crop: "limit" }]
 });
-
-
 const parser = multer({ storage: storage });
 
 
-// var name = "ubaid";
-// var password = "pakistan1234";
+// Creating admin login detials manually
+// var name = "admin";
+// var password = "admin";
 // var newUser = new admin({
 //     username: name
 // });
@@ -68,32 +78,51 @@ const parser = multer({ storage: storage });
 //     }
 // });
 
+// Middleware
+function isLoggedIn(req, res, next)
+{
+    if(req.isAuthenticated())
+    {
+        return next();
+    }
+    res.redirect("/admin/login");
+}
 
 
+// ====== Routes ========== //
 
-
-
-app.get("/admin", function(req, res)
+// Admin Login Routes
+app.get("/admin/login", function(req, res)
 {
     res.render("admin/login");
 });
 
-// create login
-app.post("/admin", passport.authenticate("local", {
-    failureRedirect : "/admin",
-}), function(req, res)
-{
+// Login Logic
+
+app.post("/admin/login", passport.authenticate("local", {
+    successRedirect: "/admin",
+    failureRedirect: "/admin/login"
+}) ,function(req, res){
+});
+
+app.get("/admin/logout", function(req, res){
+    req.logout();
+    res.redirect("/admin/login")
+});
+
+app.get("/admin",isLoggedIn, function(req, res){
     job.find({}, function(err, jobs){
-       if(err){
-           console.log("ERROR!");
-       } else {
+      if(err){
+          console.log("ERROR!");
+      } else {
           res.render("admin/admin", {jobs: jobs}); 
-       }
-   });
+      }
+    })
 });
 
 
-app.post("/updateJob", parser.single("image"), function(req, res)
+
+app.post("/admin/addJob", parser.single("image"), function(req, res)
 {
     let title = req.body.title;
     let location = req.body.location;
@@ -133,9 +162,6 @@ app.post("/updateJob", parser.single("image"), function(req, res)
             res.redirect("/admin");
         }
     });
-
-
-    
 });
 
 
@@ -150,11 +176,12 @@ app.get("/search", function(req, res)
        if(err){
            console.log("ERROR!");
        } else {
+          console.log(req.params.q);
           res.render("search", {jobs: jobs}); 
        }
    });
-   
 });
+
 
 app.get("/about", function(req, res)
 {
@@ -172,6 +199,44 @@ app.get("/detail/:id", function(req, res)
    })
     
 });
+
+// Edit Route
+
+app.get("/admin/job/:id/edit", function(req, res){
+    
+    job.findById(req.params.id, function(err, foundJob){
+       if(err){
+           res.redirect("/admin");
+       } else {
+           res.render("admin/edit", {job: foundJob});
+       }
+   })
+})
+
+// Update Route
+
+app.post("/detail", function(req, res){
+    
+    res.send("Post request received");
+    console.log(req.body);
+    // job.findByIdAndUpdate(req.params.id, req.body.jData, function(err, updateJob){
+    //     if(err){
+    //         res.redirect("/admin")
+    //     } else {
+    //         // res.redirect("/detail/" + req.params.id);
+    //         res.send(req.body.jData)
+    //     }
+    // })
+    
+})
+
+app.get("/test", function(req,res){
+    res.render("test")
+})
+
+app.get("*", function(req,res){
+    res.send("Page Not Foud")
+})
 
 
 
