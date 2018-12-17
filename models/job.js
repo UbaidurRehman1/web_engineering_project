@@ -5,14 +5,16 @@ let jobSchema = new mongoose.Schema(
     {
         title: String,
         location: String,
-        req: String,
-        no: Number,
+        skills: String,
+        qualification: String,
         desc: String,
-        min_exp: Number,
-        max_exp: Number,
+        experience: String,
         min_sal: Number,
         max_sal: Number,
-        image: String
+        image: String,
+        company: String,
+        companyInfo: String,
+        date: {type: Date, default: Date.now}
     }
 );
 

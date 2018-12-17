@@ -83,7 +83,13 @@ app.post("/admin", passport.authenticate("local", {
     failureRedirect : "/admin",
 }), function(req, res)
 {
-    res.render("admin/admin");
+    job.find({}, function(err, jobs){
+       if(err){
+           console.log("ERROR!");
+       } else {
+          res.render("admin/admin", {jobs: jobs}); 
+       }
+   });
 });
 
 
@@ -91,36 +97,32 @@ app.post("/updateJob", parser.single("image"), function(req, res)
 {
     let title = req.body.title;
     let location = req.body.location;
-    let requirement = req.body.req;
-    let no = req.body.no;
+    let company = req.body.company;
+    let experience = req.body.experience;
     let desc = req.body.desc;
-    let min_year = req.body.min_year;
-    let max_year = req.body.max_year;
-    let from_salary = req.body.from_salary;
-    let to_salary = req.body.to_salary;
-
-    // let imageFile = req.files.image;
-    // let image = imageFile.name;
-
-    // imageFile.mv('/jobs_images/' + image, function(err) {
-    // if (err)
-    //   return res.status(500).send(err);
-    // });
+    let skills = req.body.skills;
+    let qualification = req.body.qualification;
+    let min_sal = req.body.min_sal;
+    let max_sal = req.body.max_sal;
+    let companyInfo = req.body.companyInfo;
     let image_url = req.file.url;
 
-    let object_ = {title: title, location: location, 
-        req: requirement,
-        no: no,
+    let object_ = {
+        title: title, 
+        location: location, 
+        company: company,
+        experience: experience,
         desc: desc,
-        min_exp: min_year,
-        max_exp: max_year,
-        min_sal: from_salary,
-        max_sal: to_salary,
-        image: image_url
+        skills: skills,
+        qualification: qualification,
+        min_sal: min_sal,
+        max_sal: max_sal,
+        image: image_url,
+        companyInfo: companyInfo
     };
     
 
-    job.create(object_, function(err, campground)
+    job.create(object_, function(err)
     {
         if(err)
         {
@@ -128,7 +130,7 @@ app.post("/updateJob", parser.single("image"), function(req, res)
         }
         else
         {
-            res.send(object_);
+            res.redirect("/admin");
         }
     });
 
@@ -144,7 +146,14 @@ app.get("/", function(req, res)
 
 app.get("/search", function(req, res)
 {
-    res.render("search");
+    job.find({}, function(err, jobs){
+       if(err){
+           console.log("ERROR!");
+       } else {
+          res.render("search", {jobs: jobs}); 
+       }
+   });
+   
 });
 
 app.get("/about", function(req, res)
@@ -152,9 +161,16 @@ app.get("/about", function(req, res)
     res.render("about");
 });
 
-app.get("/detail", function(req, res)
+app.get("/detail/:id", function(req, res)
 {
-    res.render("detail");
+       job.findById(req.params.id, function(err, foundJob){
+       if(err){
+           res.redirect("/");
+       } else {
+           res.render("detail", {job: foundJob});
+       }
+   })
+    
 });
 
 

@@ -73,49 +73,41 @@
             </div>
             <div class="ui hidden section divider"></div>
             <div class="row">
-              <h1 class="ui huge header">
-                Jobs Posted
-              </h1>
+              <h1 class="ui huge header">Jobs Posted</h1>
+
               <div class="ui primary button" style="position: absolute; right: 0em" id="Insert">
                 <i class="plus icon"></i> Add Job
               </div>
             </div>
+            
+            
+            
+              
+            
+            
+            
+            
             <div class="ui divider"></div>
             <div class="row">
+              
               <table class="ui single line striped selectable table">
                 <thead>
                   <tr>
-                    <th>
-                      #
-                    </th>
-                    <th>
-                      Header
-                    </th>
-                    <th>
-                      Header
-                    </th>
-                    <th>
-                      Header
-                    </th>
-                    <th id="actions">
-                      Actions
-                    </th>
+                    <th>Company</th>
+                    <th>Job Title</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th id="actions">Actions</th>
                   </tr>
                 </thead>
+
                 <tbody>
+                  <% jobs.forEach(function(job){ %>
                   <tr>
-                    <td>
-                      1,001
-                    </td>
-                    <td>
-                      Lorem
-                    </td>
-                    <td>
-                      ipsum
-                    </td>
-                    <td>
-                      dolor
-                    </td>
+                    <td><%= job.company %></td>
+                    <td><%= job.title %></td>
+                    <td><%= job.location %></td>
+                    <td><%= job.date.toDateString() %></td>
                     <td id="actions">
                       <div class="ui right pointing dropdown">
                         <i class="ellipsis vertical link icon"></i>
@@ -126,110 +118,10 @@
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <td>
-                      1,002
-                    </td>
-                    <td>
-                      amet
-                    </td>
-                    <td>
-                      consectetur
-                    </td>
-                    <td>
-                      adipiscing
-                    </td>
-                    <td id="actions">
-                      <i class="ellipsis vertical link icon"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      1,003
-                    </td>
-                    <td>
-                      Integer
-                    </td>
-                    <td>
-                      nec
-                    </td>
-                    <td>
-                      odio
-                    </td>
-                    <td id="actions">
-                      <i class="ellipsis vertical link icon"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      1,003
-                    </td>
-                    <td>
-                      libero
-                    </td>
-                    <td>
-                      Sed
-                    </td>
-                    <td>
-                      cursus
-                    </td>
-                    <td id="actions">
-                      <i class="ellipsis vertical link icon"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      1,004
-                    </td>
-                    <td>
-                      dapibus
-                    </td>
-                    <td>
-                      diam
-                    </td>
-                    <td>
-                      Sed
-                    </td>
-                    <td id="actions">
-                      <i class="ellipsis vertical link icon"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      1,005
-                    </td>
-                    <td>
-                      Nulla
-                    </td>
-                    <td>
-                      quis
-                    </td>
-                    <td>
-                      sem
-                    </td>
-                    <td id="actions">
-                      <i class="ellipsis vertical link icon"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      1,006
-                    </td>
-                    <td>
-                      nibh
-                    </td>
-                    <td>
-                      elementum
-                    </td>
-                    <td>
-                      Duis
-                    </td>
-                    <td id="actions">
-                      <i class="ellipsis vertical link icon"></i>
-                    </td>
-                  </tr>
+                  <% }) %>
                 </tbody>
               </table>
+              
             </div>
           </div>
         </div>
@@ -243,16 +135,16 @@
   </div>
   <form class="ui form blue segment" action="/updateJob" method="post" encType="multipart/form-data">
                   <br>
-                  <div class="field">
+                    <div class="field">
                     
                     <div class="two fields">
                       <div class="field">
-                        <label><h3 style="text-align: left;">Job Title</h3></label>
-                        <input type="text" name="title" placeholder="First Name">
+                        <label><h3 style="text-align: left;">Company Name</h3></label>
+                        <input type="text" name="company" placeholder="Facebook" required>
                       </div>
                       <div class="field">
-                        <label><h3 style="text-align: left;">Job Location</h3></label>
-                        <input type="text" name="location" placeholder="Last Name">
+                        <label><h3 style="text-align: left;">Job Title</h3></label>
+                        <input type="text" name="title" placeholder="Full Stack Developer" required>
                       </div>
                     </div>
                   </div>
@@ -260,18 +152,38 @@
                   <div class="field">
                     <div class="two fields">
                       <div class="field">
-                        <label><h3 style="text-align: left;">Required Career Level</h3></label>
-                        <input type="text" name="req" placeholder="E.g. BESE">
+                        <label><h3 style="text-align: left;">Job Location</h3></label>
+                        <input type="text" name="location" placeholder="Silicon valley" required>
                       </div>
+                      
                       <div class="field">
-                        <label><h3 style="text-align: left;">No. Of Positions</h3></label>
-                        <input type="number" name="no" placeholder="Choose a file">
+                        <label><h3 style="text-align: left;">Experience Required</h3></label>
+                        <input type="text" name="experience" placeholder="1 Year" required>
                       </div>
                     </div>
                   </div>
                   
+                  <br>
+                  <div class="field">
+                    <div class="two fields">
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Skills</h3></label>
+                        <input type="text" name="skills" placeholder="HTML, CSS, Java" required>
+                      </div>
+                      <div class="field">
+                        <label><h3 style="text-align: left;">Qualification</h3></label>
+                        <input type="text" name="qualification" placeholder="e.g. Masters in CS" required>
+                      </div>
+                    </div>
+                  </div>
                   
                   <br>
+                  
+                    <div class="field">
+                      <label><h3 style="text-align: left;">Company Info</h3></label>
+                      <textarea name="companyInfo"></textarea>
+                    </div>
+
                     <div class="field">
                       <label><h3 style="text-align: left;">Job Description</h3></label>
                       <textarea name="desc"></textarea>
@@ -279,36 +191,23 @@
                   
                    <br>
                    <div class="field">
-                    <label><h3 style="text-align: left;">Years of Experience</h3></label>
-                    <div class="two fields">
-                      <div class="field">
-                        
-                        <input type="number" name="min_year" placeholder="Min">
-                      </div>
-                      <div class="field">
-                        
-                        <input type="number" name="max_year" placeholder="Max">
-                      </div>
-                    </div>
-                  </div>
-                  <br>
-                  <div class="field">
                     <label><h3 style="text-align: left;">Salary Range</h3></label>
                     <div class="two fields">
                       <div class="field">
                         
-                        <input type="number" name="from_salary" placeholder="From">
+                        <input type="number" name="min_sal" placeholder="Min">
                       </div>
                       <div class="field">
                         
-                        <input type="number" name="to_salary" placeholder="To">
+                        <input type="number" name="max_sal" placeholder="Max">
                       </div>
                     </div>
                   </div>
                   <br>
+
                     <div class="field">
                       <label><h3 style="text-align: left;">Upload Image</h3></label>
-                      <input type="file" name="image">
+                      <input type="file" name="image" required>
                     </div>
 
                   <br>

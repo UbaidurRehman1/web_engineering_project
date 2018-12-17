@@ -14,7 +14,7 @@
        
           <%include ./partials/pageHeader.ejs%> 
        <div style="background-color: #F1F1F1; padding: 2em">
-          <div class="center aligned ui header"><h1>Job Detail</h1></div>   
+          <div class="center aligned ui header"><h1><%= job.title %></h1></div>   
         </div>
         <div class="ui horizontal divider"><span style="font-size: 0.8em"><a href="/">Home</a> > <a href="/search">Jobs</a></span></div>
 
@@ -25,20 +25,27 @@
           <div class="six wide column">
             <div class="Filters">
             <div style="padding: 0; height:17em" class="ui container">
-              <img style="width: 100%; height: 100%" src="resources/images/p1.jpg">
+              <img style="width: 100%; height: 100%" src="<%= job.image %>">
             </div>
             <div style="border-style: none; background-color: #F1F1F1" class="ui segment">
               <div class="left aligned ui header"><i class="marker icon"></i>Location</div>
-              <div class="left aligned ui text container">Place 1, Lahore, Pakistan</div>
+              <div class="left aligned ui text container"><%= job.location %></div>
               <div class="ui horizontal divider">|</div>
+              
               <div class="left aligned ui header"><i class="money bill icon"></i>Salary</div>
-              <div class="left aligned ui text container">25,000 - 30,000 per month</div>
+              <div class="left aligned ui text container"><%= job.min_sal %> - <%= job.max_sal %></div>
               <div class="ui horizontal divider">|</div>
+              
               <div class="left aligned ui header"><i class="briefcase icon"></i>Experience</div>
-              <div class="left aligned ui text container">1 Year +</div>
+              <div class="left aligned ui text container"><%= job.experience %></div>
               <div class="ui horizontal divider">|</div>
+              
+              <div class="left aligned ui header"><i class="file alternate icon"></i>Qualification</div>
+              <div class="left aligned ui text container"><%= job.qualification %></div>
+              <div class="ui horizontal divider">|</div>
+              
               <div class="left aligned ui header"><i class="clock icon"></i>Submitted On</div>
-              <div class="left aligned ui text container">28th October, 2018</div>
+              <div class="left aligned ui text container"><%= job.date.toDateString() %></div>
               <div class="ui horizontal divider"></div>
             </div>
             <br>
@@ -92,37 +99,23 @@
                 
               </div>
               -->
-               <div class="ui header"><h2>IT Development Manager</h2></div>
+               <div class="ui header"><h2><%= job.company %></h2></div>
                <div style="font-size: 1.2em; color: grey">
                 <br>
-                 <p>Aliquam hendrit rutrum iaculis nullam ondimentum maluada velit beum donec sit amet tristique erosam amet risus mollis malesuada quis quis nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae mattis nisi vel elit porttitor euismod pharetra sem interdum.</p><br>
+                 <p><%= job.companyInfo %></p><br>
                  
                  <div class="ui header">Job Description</div>
                  <div class="ui divider"></div>
-                 <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-                  <br><br><br>
-                Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.
-                </p>
+                 <p><%= job.desc %></p>
 
                 <div class="ui header">Skills</div>
                 <div class="ui tag labels">
-                  <a class="ui label">
-                    MVC
-                  </a>
-                  <a class="ui label">
-                    Angular JS
-                  </a>
-                  <a class="ui label">
-                    .NET
-                  </a>
-                  <a class="ui label">
-                    HTML 5.0
-                  </a>
-                  <a class="ui label">
-                    Apache
-                  </a>
+                  <% job.skills.split(",").forEach(function(skill){ %>
+                  <a class="ui label"><%= skill %></a>
+                  <% }) %>
                 </div>
                </div>
+               
                <br><br>
                <div style="background-color: #F1F1F1" class="blue ui segment">
                <form class="ui form">
