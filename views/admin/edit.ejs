@@ -27,9 +27,8 @@
           <div class="center aligned ui header"><h1>Edit Job</h1></div>   
         </div>
         
-        <div class="ui horizontal divider"><span style="font-size: 0.8em"><a href="">Home</a> > <a href="admin.ejs">Admin</a></span></div>
-        <br>
-        <br>
+        <div class="ui horizontal divider"><span style="font-size: 0.8em"><a href="">Home</a> > <a href="/admin">Admin</a></span></div>
+
       <br>
       
         
@@ -37,13 +36,13 @@
 
             
                
-                <form class="ui form blue segment" action="/detail/<%= job._id %>" method="POST" encType="multipart/form-data">
+                <form class="ui form blue segment" action="/detail/<%= job._id %>?_method=PUT" method="POST">
                   <br>
                     <div class="field">
                     <div class="two fields">
                       <div class="field">
                         <label><h3 style="text-align: left;">Company Name</h3></label>
-                        <input type="text" name="company" placeholder="Facebook" value="<%= job.company %>">
+                        <input type="text" name="jData[company]" placeholder="Facebook" value="<%= job.company %>">
                       </div>
                       <div class="field">
                         <label><h3 style="text-align: left;">Job Title</h3></label>
@@ -124,6 +123,7 @@
     </button>
   </div>
 </form>
+
               </div>
               </div>
            

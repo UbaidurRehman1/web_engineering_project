@@ -3,24 +3,23 @@
 <head>
   <title></title>
 
-    <title>Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI.</title>
+    <title>Admin Panel - Approve Jobs</title>
     <link href="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.default.min.css" rel="stylesheet" type="text/css" />
     <link href="http://semantic-ui-forest.com/static/stylesheets/default.css" rel="stylesheet" type="text/css" />
     <script src="http://semantic-ui-forest.com/static/dist/jquery/jquery.min.js"></script>
 </head>
+
+<%include ../partials/adminNav.ejs%>
+	  
 <body>
 
-  <%include ../partials/header.ejs%>
-  
-    <div class="ui grid">
-      <div class="row">
-         <%include ../partials/sidebar.ejs%>
+   <div class="ui bottom attached segment">     
+         
+      <div class="pusher">
         <div class="column" id="content">
           <div class="ui grid">
             <div class="row">
-              <h1 class="ui huge header">
-                Dashboard
-              </h1>
+
             </div>
             <div class="ui divider"></div>
             
@@ -50,34 +49,33 @@
                 </thead>
 
                 <tbody>
-                  <% jobs.forEach(function(job){ %>
+                  
                   <tr>
-                    <td><%= job.company %></td>
-                    <td><%= job.title %></td>
-                    <td><%= job.location %></td>
-                    <td><%= job.date.toDateString() %></td>
+                    <td>Company</td>
+                    <td>Title</td>
+                    <td>Location</td>
+                    <td>Date</td>
                     <td id="actions">
                       <div class="ui right pointing dropdown">
                         <i class="ellipsis vertical link icon"></i>
                         <div class="menu">
-                          <div class="item" id="Update"><a href="/admin/job/<%= job._id %>/edit">View</a></div>
-                          <div class="item" id="Update"><a href="/admin/job/<%= job._id %>/edit">Edit</a></div>
-                          <div class="item" id="Delete"><a href="/admin/job/<%= job._id %>/delete">Approve</a></div>
+                          <div class="item" id="Update"><a href="/admin/job//edit">View</a></div>
+                          <div class="item" id="Update"><a href="/admin/job//edit">Edit</a></div>
+                          <div class="item" id="Delete"><a href="/admin/job//delete">Approve</a></div>
                         </div>
                       </div>
                     </td>
                   </tr>
-                  <% }) %>
+                  
                 </tbody>
               </table>
               
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
-
-// Add a new job form
+ 
 
     <style type="text/css">
 
@@ -87,6 +85,7 @@
   </body>
   <footer>
   <link rel="stylesheet" type="text/css" href="css/admin.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.min.js"></script>
 
 <script type="text/javascript">

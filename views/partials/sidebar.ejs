@@ -1,9 +1,22 @@
    <div class="column" id="sidebar">
           <div class="ui secondary vertical fluid menu">
-            <a class="active item">Overview</a><a class="item">Reports</a><a class="item">Analytics</a><a class="item">Export</a>
+            <a href="/admin" class="active item">Home</a><a href="/admin/job/approve" class="item">Approve Jobs</a>
             <div class="ui hidden divider"></div>
-            <a class="item">Nav item</a><a class="item">Nav item again</a><a class="item">One more nav</a><a class="item">Another nav item</a><a class="item">More navigation</a>
+            <a href="#" class="item">Comments Reviews</a>
             <div class="ui hidden divider"></div>
-            <a class="item">Macintosh</a><a class="item">Linux</a><a class="item">Windows</a>
+            
           </div>
     </div>
+    
+    
+  <div class="ui inverted left vertical sidebar menu" id="hidden-sidebar">
+            <a href="/" class="active item">Home</a><a href="/about" class="item">About Us</a>
+
+          </div>
+  
+
+<script type="text/javascript">
+	 $('.sidebar-toggle').click(function () {
+    $('#hidden-sidebar').sidebar('toggle')
+  })
+</script>

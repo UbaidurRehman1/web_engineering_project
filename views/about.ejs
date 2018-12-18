@@ -13,7 +13,8 @@
     <!--Page Contents-->
       
        
-       <%include ./partials/pageHeader.ejs%> 
+       <%include ./partials/pageHeader.ejs%>
+       <%include ./partials/sidebar.ejs%> 
        <div style="background-color: #F1F1F1; padding: 2em">
           <div class="center aligned ui header"><h1>About us</h1></div>   
         </div>
@@ -135,6 +136,11 @@
     <br><br>
       <%include ./partials/footer.ejs%>
     </div>
+        <style type="text/css">
+      #sidebar{
+        display: none;
+      }
+    </style>
     <script src="http://semantic-ui-forest.com/static/dist/semantic-ui/semantic.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </body>

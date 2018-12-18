@@ -202,7 +202,7 @@ app.get("/detail/:id", function(req, res)
 
 // Edit Route
 
-app.get("/admin/job/:id/edit", function(req, res){
+app.get("/admin/job/:id/edit",isLoggedIn, function(req, res){
     
     job.findById(req.params.id, function(err, foundJob){
        if(err){
@@ -215,28 +215,43 @@ app.get("/admin/job/:id/edit", function(req, res){
 
 // Update Route
 
-app.post("/detail", function(req, res){
+app.put("/detail/:id", function(req, res){
     
-    res.send("Post request received");
-    console.log(req.body);
-    // job.findByIdAndUpdate(req.params.id, req.body.jData, function(err, updateJob){
-    //     if(err){
-    //         res.redirect("/admin")
-    //     } else {
-    //         // res.redirect("/detail/" + req.params.id);
-    //         res.send(req.body.jData)
-    //     }
-    // })
+    job.findByIdAndUpdate(req.params.id, req.body.jData, function(err, updateJob){
+        if(err){
+            res.redirect("/admin")
+        } else {
+            res.redirect("/detail/" + req.params.id);
+        }
+    })
     
 })
 
-app.get("/test", function(req,res){
-    res.render("test")
+// Delete Route
+
+app.get("/admin/job/:id/delete",isLoggedIn, function(req, res){
+   job.findById(req.params.id, function(err, blog){
+       if(err){
+           console.log(err);
+       } else {
+           blog.remove();
+           res.redirect("/admin");
+       }
+   }); 
+});
+
+// Approve Job
+
+app.get("/admin/job/approve", function(req,res){
+    res.render("admin/JobsTable")
 })
+
+
 
 app.get("*", function(req,res){
-    res.send("Page Not Foud")
+    res.render("404")
 })
+
 
 
 

@@ -2,6 +2,20 @@
         display: relative;
       }
       
+span.step {
+  background: #cccccc;
+  font-size: 15px;
+  border-radius: 50%;
+  color: #000;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 10em;
+
+  text-align: center;
+  width: 80%; 
+ 
+}
+      
       #sidebar {
         position: fixed;
         top: 52px;
@@ -70,3 +84,10 @@
           width: 100%;
         }
       }
+       @media only screen and (max-width: 701px) {
+        
+        #hidden-sidebar{
+          display:none;
+        }
+         
+       }
