@@ -6,7 +6,8 @@ let     express                     =   require("express"),
         passport                    =   require("passport"),
         job                         =   require("./models/job"),
         LocalStratrgy               =   require("passport-local"),
-        methodOverride              =   require('method-override');
+        methodOverride              =   require('method-override'),
+        flash                       =   require('connect-flash');
 
 
 const multer = require("multer");
@@ -29,6 +30,7 @@ app.use(require('express-session')({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash()); // use connect-flash for flash messages stored in session
 passport.use(new LocalStratrgy(admin.authenticate()));
 
 // For encoding and decoding the session
@@ -94,14 +96,16 @@ function isLoggedIn(req, res, next)
 // Admin Login Routes
 app.get("/admin/login", function(req, res)
 {
-    res.render("admin/login");
+
+    res.render("admin/login", { message: req.flash('error') });
 });
 
 // Login Logic
 
 app.post("/admin/login", passport.authenticate("local", {
     successRedirect: "/admin",
-    failureRedirect: "/admin/login"
+    failureRedirect: "/admin/login",
+    failureFlash: { type: 'error', message: 'Invalid username or password.' }
 }) ,function(req, res){
 });
 
@@ -172,13 +176,20 @@ app.get("/", function(req, res)
 
 app.get("/search", function(req, res)
 {
+
+    var q = req.query.q;
+    console.log(q);
+
     job.find({}, function(err, jobs){
-       if(err){
-           console.log("ERROR!");
-       } else {
-          console.log(req.params.q);
-          res.render("search", {jobs: jobs}); 
-       }
+
+        if(err)
+        {
+            console.log("ERROR!");
+        }
+        else
+        {
+            res.render("search", {jobs: jobs, q : q});
+        }
    });
 });
 

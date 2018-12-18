@@ -27,7 +27,7 @@
             <div class="four fields">
             <div class="ten wide column field">
                <div class="ui action input">
-                <input type="text" placeholder="Job Type, Company"/>
+                <input type="text" placeholder="Job Type, Company" id="text232" name="q" onkeyup="searchjobs()"/>
                  <button class="ui primary button"> Search </button>
               </div>
             </div>
@@ -218,7 +218,7 @@
               
               <% jobs.forEach(function(job){ %>
               
-              <div style="width: 100%" class="ui card">
+              <div style="width: 100%" class="ui card jobs">
                 <div class="content">
                   <div class="ui internally celled two column grid">
                   <div style="padding: 0" class="five wide column container">
@@ -226,7 +226,7 @@
                   </div>
 
                   <div class="nine wide column">
-                  <h3 class="ui blue left aligned header"><%= job.title %></h3>
+                  <h3 class="ui blue left aligned header title"><%= job.title %></h3>
                   <h3 class="ui left aligned sub header"><i class="blue marker outline icon"></i><%= job.location %></h3>
                   <div class="ui small feed">
                     <div class="event">
