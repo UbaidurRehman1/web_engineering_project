@@ -11,6 +11,7 @@ let jobSchema = new mongoose.Schema(
         experience: String,
         min_sal: Number,
         max_sal: Number,
+        // image: {type: String, default: "http://logodust.com/img/logo.svg"},
         image: String,
         company: String,
         companyInfo: String,

@@ -128,34 +128,18 @@ app.get("/admin",isLoggedIn, function(req, res){
 
 app.post("/admin/addJob", parser.single("image"), function(req, res)
 {
-    let title = req.body.title;
-    let location = req.body.location;
-    let company = req.body.company;
-    let experience = req.body.experience;
-    let desc = req.body.desc;
-    let skills = req.body.skills;
-    let qualification = req.body.qualification;
-    let min_sal = req.body.min_sal;
-    let max_sal = req.body.max_sal;
-    let companyInfo = req.body.companyInfo;
-    let image_url = req.file.url;
-
-    let object_ = {
-        title: title, 
-        location: location, 
-        company: company,
-        experience: experience,
-        desc: desc,
-        skills: skills,
-        qualification: qualification,
-        min_sal: min_sal,
-        max_sal: max_sal,
-        image: image_url,
-        companyInfo: companyInfo
-    };
+    var imgUrl;
+    try {
+    imgUrl = req.file.url;
+    }
+    catch(error) {
+    imgUrl = "http://logodust.com/img/logo.svg";
+    }
     
-
-    job.create(object_, function(err)
+    req.body.data.image = imgUrl;
+    
+    
+    job.create(req.body.data, function(err)
     {
         if(err)
         {
@@ -178,7 +162,7 @@ app.get("/search", function(req, res)
 {
 
     var q = req.query.q;
-    console.log(q);
+
 
     job.find({}, function(err, jobs){
 

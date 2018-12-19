@@ -1,5 +1,26 @@
 
 	<%include ../partials/header.ejs%>
+	<script>
+	  function fileValidation(){
+    var fileInput = document.getElementById('file');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+        fileInput.value = '';
+        return false;
+    }else{
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+}
+	</script>
 	
     <div class="ui grid">
       <div class="row">
@@ -118,11 +139,11 @@
                     <div class="two fields">
                       <div class="field">
                         <label><h3 style="text-align: left;">Company Name</h3></label>
-                        <input type="text" name="company" placeholder="Facebook" required>
+                        <input type="text" name="data[company]" placeholder="Facebook" required>
                       </div>
                       <div class="field">
                         <label><h3 style="text-align: left;">Job Title</h3></label>
-                        <input type="text" name="title" placeholder="Full Stack Developer" required>
+                        <input type="text" name="data[title]" placeholder="Full Stack Developer" required>
                       </div>
                     </div>
                   </div>
@@ -131,12 +152,12 @@
                     <div class="two fields">
                       <div class="field">
                         <label><h3 style="text-align: left;">Job Location</h3></label>
-                        <input type="text" name="location" placeholder="Silicon valley" required>
+                        <input type="text" name="data[location]" placeholder="Silicon valley" required>
                       </div>
                       
                       <div class="field">
                         <label><h3 style="text-align: left;">Experience Required</h3></label>
-                        <input type="text" name="experience" placeholder="1 Year" required>
+                        <input type="text" name="data[experience]" placeholder="1 Year" required>
                       </div>
                     </div>
                   </div>
@@ -146,11 +167,11 @@
                     <div class="two fields">
                       <div class="field">
                         <label><h3 style="text-align: left;">Skills</h3></label>
-                        <input type="text" name="skills" placeholder="HTML, CSS, Java" required>
+                        <input type="text" name="data[skills]" placeholder="HTML, CSS, Java" required>
                       </div>
                       <div class="field">
                         <label><h3 style="text-align: left;">Qualification</h3></label>
-                        <input type="text" name="qualification" placeholder="e.g. Masters in CS" required>
+                        <input type="text" name="data[qualification]" placeholder="e.g. Masters in CS" required>
                       </div>
                     </div>
                   </div>
@@ -159,12 +180,12 @@
                   
                     <div class="field">
                       <label><h3 style="text-align: left;">Company Info</h3></label>
-                      <textarea name="companyInfo"></textarea>
+                      <textarea name="data[companyInfo]"></textarea>
                     </div>
 
                     <div class="field">
                       <label><h3 style="text-align: left;">Job Description</h3></label>
-                      <textarea name="desc"></textarea>
+                      <textarea name="data[desc]"></textarea>
                     </div>
                   
                    <br>
@@ -173,11 +194,11 @@
                     <div class="two fields">
                       <div class="field">
                         
-                        <input type="number" name="min_sal" placeholder="Min">
+                        <input type="number" name="data[min_sal]" placeholder="Min">
                       </div>
                       <div class="field">
                         
-                        <input type="number" name="max_sal" placeholder="Max">
+                        <input type="number" name="data[max_sal]" placeholder="Max">
                       </div>
                     </div>
                   </div>
@@ -185,7 +206,7 @@
 
                     <div class="field">
                       <label><h3 style="text-align: left;">Upload Image</h3></label>
-                      <input type="file" name="image" required>
+                      <input type="file" name="image" accept="image/*" onchange="return fileValidation()" id="file">
                     </div>
 
                   <br>
